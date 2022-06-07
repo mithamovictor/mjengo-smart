@@ -4,13 +4,13 @@ const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const PORT = process.env.PORT || 4000;
-// const errorHandler = require('./app/common/errorHandler');
-// const connectDB = require('./db');
+const errorHandler = require('./app/common/errorHandler');
+const connectDB = require('./db');
 
 /**
  * Routers
  */
-// const AuthRouter = require('./app/routes/auth.routes');
+const UsersRouter = require('./app/routes/users.routes');
 
 /**
  * Instantiate Server App
@@ -23,17 +23,17 @@ app.use(cors());
 /**
  * Connect to Mongo DB
  */
-// connectDB();
+connectDB();
 
 /**
  * Instantiate Routes
  */
-// AuthRouter.routesConfig(app);
+ UsersRouter.routesConfig(app);
 
 /**
  * Handle Errors
  */
-// app.use(errorHandler);
+app.use(errorHandler);
 
 /**
  * Serve App
