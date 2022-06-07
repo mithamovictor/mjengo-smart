@@ -1,0 +1,28 @@
+{
+  "name": "mjengo-smart",
+  "version": "1.0.0",
+  "description": "Mjengo Smart Project",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "start": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "npm start --prefix server",
+    "client": "npm start --prefix client",
+    "setup": "concurrently \"npm install --prefix client\" \"npm install --prefix server\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mithamovictor/mjengo-smart.git"
+  },
+  "keywords": [],
+  "author": "Karungaru Mithamo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mithamovictor/mjengo-smart/issues"
+  },
+  "homepage": "https://github.com/mithamovictor/mjengo-smart#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "concurrently": "^7.2.1"
+  }
+}
