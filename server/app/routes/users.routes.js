@@ -12,4 +12,7 @@ exports.routesConfig = app => {
     SchemaMiddleware.authenticateUserSchema,
     UsersController.authenticateUser,
   ]);
+  app.get('/api/profile', [
+    UsersController.getProfile,
+  ]);
 };

@@ -28,7 +28,16 @@ const authenticate = async ({ email, password }) => {
         }).catch(error=>console.error(error));
     }).catch(err=>{
       console.error(err);
-    })
+    });
+}
+
+const getUserById = async (id) => {
+  return await Users.findById({ _id: id })
+    .then(user=>{
+      const newUserWithV = JSON.parse(JSON.stringify(user));
+      const { __v , ...newUser } = newUserWithV;
+      return omitHash(newUser);
+    }).catch(err=>console.error(err));
 }
 
 /**
@@ -66,5 +75,6 @@ const omitHash = user => {
 
 module.exports = {
   authenticate,
+  getUserById,
   create,
 };
