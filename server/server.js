@@ -5,12 +5,12 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const PORT = process.env.PORT || 4000;
 const errorHandler = require('./app/common/errorHandler');
-const connectDB = require('./db');
 
 /**
  * Routers
  */
 const UsersRouter = require('./app/routes/users.routes');
+const PostsRouter = require('./app/routes/posts.routes');
 
 /**
  * Instantiate Server App
@@ -21,14 +21,10 @@ app.use(bodyParser.json());
 app.use(cors());
 
 /**
- * Connect to Mongo DB
- */
-connectDB();
-
-/**
  * Instantiate Routes
  */
  UsersRouter.routesConfig(app);
+ PostsRouter.routesConfig(app);
 
 /**
  * Handle Errors

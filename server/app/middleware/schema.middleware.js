@@ -36,3 +36,13 @@ exports.registerUserSchema = (req, res, next) => {
   })
   validateRequest(req, next, SCHEMA)
 }
+
+
+exports.postSchema = (req, res, next) => {
+  const SCHEMA = Joi.object({
+    title: Joi.string().required(),
+    content: Joi.string().required(),
+    author: Joi.number().required()
+  });
+  validateRequest(req, next, SCHEMA);
+}

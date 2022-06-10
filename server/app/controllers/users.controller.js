@@ -12,11 +12,6 @@ const UsersService = require('../services/users.service');
 exports.registerUser = (req, res, next) => {
   return UsersService.create(req.body)
     .then(user=>{
-      if(user.keyValue?.email)
-        return res.status(403).json({
-          status: 'failed',
-          message: 'User is already registered!',
-        });
       return res.status(201).json({
         status: 'success',
         message: 'User registered successfully!',
@@ -35,9 +30,9 @@ exports.registerUser = (req, res, next) => {
 exports.authenticateUser = (req, res, next) => {
   return UsersService.authenticate(req.body)
     .then(result=>{
-      if (result?.notFound) return res.status(404).json(result)
-      if (result?.passwordMismatch) return res.status(403).json(result);
-      return res.status(200).json(result);
+      if (result?.notFound) return res.status(404).json({ ...result, status: 'failed' })
+      if (result?.passwordMismatch) return res.status(403).json({ ...result, status: 'failed' });
+      return res.status(200).json({ ...result, status: 'success' });
     }).catch(next);
 };
 
@@ -51,7 +46,7 @@ exports.authenticateUser = (req, res, next) => {
 exports.getProfile = (req, res, next) => {
   // we receive the id in the request
   const { id } = req?.query;
-  return UsersService.getUserById(id)
+  return UsersService.getById(id)
     .then(user=>{
       return res.status(200).send(user);
     }).catch(next);
