@@ -1,12 +1,11 @@
-# Fullstack Frontend Project
+# Fullstack Mjengo Smart Assignment Project 
 
-This is a project for a fullstach Crud App. It is packaged as a single app but can be split into two, client and server apps.
-The client is developed using React.js and the backend uses Nodejs and MySQL for the database.
+This is a project for a **MERN** *(MySql, Express, React, Nodejs)* stack Crud App. It is packaged as a single app. This is advantegeous in case of the need to containerize the app and deploy is as one. It however, can be split into two parts, client and server apps as they all run independent of each other.
 
 ## Requirements
 - Nodejs
 - Mysql
-- Sequelize CLI (Documentation can be found here)[https://sequelize.org/]
+- Sequelize CLI [Documentation can be found here](https://sequelize.org/)
 
 ## Setup
 Once you have setup the above requirements, ```cd``` to the root directory of the app and run ```npm install```. This will install the depencency required to run the app as one. Once this is done, run ```npm run setup``` to install dependencies for the client app and those of the server app.
