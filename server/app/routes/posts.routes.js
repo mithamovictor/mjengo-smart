@@ -10,7 +10,7 @@ exports.routesConfig = app => {
   app.get('/api/getAllPosts', [
     PostsController.getAllPosts
   ]);
-  app.get('/api/getPost', [
+  app.get('/api/getPost/:id', [
     PostsController.getOnePost
   ]);
   app.put('/api/updatePost/:id', [

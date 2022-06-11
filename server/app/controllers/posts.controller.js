@@ -35,7 +35,7 @@ exports.getAllPosts = (req, res, next) => {
  * @returns
  */
 exports.getOnePost = (req, res, next) => {
-  const { id } = req.body;
+  const { id } = req.params;
   return PostsService.getById(id)
     .then(post=>{
       res.status(200).send(post);
