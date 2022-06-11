@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { ImSpinner9 } from 'react-icons/im';
-import AuthService from '../middleware/authService';
 import PostsService from '../middleware/postsService';
 import { ToastRunner } from '../middleware/toastHandler';
 
@@ -12,7 +11,6 @@ const EditPost = () => {
   const [errors, setErrors] = useState({ title: false, content: false });
   const navigate = useNavigate();
   const postId = useParams().id;
-  const { id } = AuthService.getCurrentUser();
 
   const handleChange = (e) => {
     const { name, value } = e.target;

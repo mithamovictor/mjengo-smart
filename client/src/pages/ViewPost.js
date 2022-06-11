@@ -26,7 +26,7 @@ const ViewPost = () => {
       .then(post=>{
         setPost(post.data);
       }).catch(err=>console.error(err))
-  }, [setPost])
+  }, [id, setPost])
 
   return (
     <>
